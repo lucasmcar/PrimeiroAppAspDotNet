@@ -1,0 +1,36 @@
+﻿@using DevPoa.TesteAspNetMvc.Web.Models;
+@model  Pessoa
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<br />
+<br />
+<p>Digite seu nome</p>
+@using (Html.BeginForm("Index", "Teste", FormMethod.Post))
+{
+    @Html.ValidationSummary(true)
+    //<input type="text" placeholder="Seu nome" id="txbNome" name="nome" />
+    //@Html.TextBox("nome", null, new { id = "txbNome", @class = "form-control" });
+    @Html.LabelFor(p => p.Nome);
+    @Html.EditorFor(p => p.Nome, null, new { @class = "form-control" });
+    @Html.ValidationMessageFor(p => p.Nome);
+
+    @Html.LabelFor(p => p.Idade);
+    @Html.EditorFor(p => p.Idade, null, new { @class = "form-control" });
+    @Html.ValidationMessageFor(p => p.Idade);
+
+    @Html.LabelFor(p => p.Endereco);
+    @Html.EditorFor(p => p.Endereco, null, new { @class = "form-control" });
+    @Html.ValidationMessageFor(p => p.Endereco);
+
+    @Html.LabelFor(p => p.Email);
+    @Html.EditorFor(p => p.Email);
+    @Html.ValidationMessageFor(p => p.Email);
+    <button type="submit">Enviar</button>
+}
+
+
+
